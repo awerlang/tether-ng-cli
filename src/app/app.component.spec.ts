@@ -1,4 +1,5 @@
 import { TestBed, async } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 
@@ -28,5 +29,12 @@ describe('AppComponent', () => {
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('h1').textContent).toContain('app works!');
+  }));
+
+  it('should open popup when button is clicked', async(() => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const btn = fixture.debugElement.query(By.css('button'));
+    btn.nativeElement.click();
   }));
 });
